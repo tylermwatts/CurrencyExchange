@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Foreign Currency Converter</h1>
+    <p>Enter the type of currency and amount you wish to convert.</p>
+</div>
+<form id="input-form" method="post" class="text-center">
+    <div class="form-group">
+        <h5>Initial currency type:</h5>
+        <select required asp-for="IndexViewModel.InitialType">
+            <optgroup label="Initial Currency">
+                <option value="EUR">€ Euro</option>
+                <option value="USD">$ U.S. Dollar</option>
+                <option value="GBP">£ Pound Sterling</option>
+            </optgroup>
+        </select>
+        <h5>Amount to convert:</h5>
+        <input type="number" asp-for="IndexViewModel.InitialAmount" min="0.01" step="0.01" />
+        <h5>Return currency type:</h5>
+        <select required asp-for="IndexViewModel.ReturnType">
+            <optgroup label="Return Currency">
+                <option value="EUR">€ Euro</option>
+                <option value="USD">$ U.S. Dollar</option>
+                <option value="GBP">£ Pound Sterling</option>
+            </optgroup>
+        </select>
+        <input type="submit" value="Convert" />
+    </div>
+</form>

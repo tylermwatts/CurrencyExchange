@@ -1,0 +1,18 @@
+﻿@page
+@model CurrencyExchange.Pages.ConvertModel
+@{
+    ViewData["Title"] = "Convert";
+}
+
+<h2>Latest Exchange Rate</h2>
+
+<table class="table">
+    <tr>
+        <td>Base Currency: @Model.ExchangeData.InitialCurrency</td>
+        <td>Initial Amount: @Model.ExchangeData.InitialAmount</td>
+        <td>Requested Currency: @Model.ExchangeData.ReturnCurrency</td>
+        <td>Converted Amount: @Model.ExchangeData.ReturnAmount</td>
+        <td></td>
+    </tr>
+</table>
+
