@@ -11,14 +11,10 @@ namespace CurrencyExchange.Pages
     {
         public ExchangeData ExchangeData { get; set; }
 
-        public ConvertModel(ExchangeData exchangeData)
+        public IActionResult OnGetConvert(ExchangeData data)
         {
-            ExchangeData = exchangeData;
-        }
-
-        public void OnGet()
-        {
-            
+            ExchangeData = data;
+            return Page();
         }
     }
 }

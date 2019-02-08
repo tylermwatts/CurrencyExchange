@@ -7,12 +7,21 @@
 <h2>Latest Exchange Rate</h2>
 
 <table class="table">
-    <tr>
-        <td>Base Currency: @Model.ExchangeData.InitialCurrency</td>
-        <td>Initial Amount: @Model.ExchangeData.InitialAmount</td>
-        <td>Requested Currency: @Model.ExchangeData.ReturnCurrency</td>
-        <td>Converted Amount: @Model.ExchangeData.ReturnAmount</td>
-        <td></td>
-    </tr>
+    <thead>
+        <tr>
+            <th>Base Currency</th>
+            <th>Initial Amount</th>
+            <th>Requested Currency</th>
+            <th>Converted Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.ExchangeData.InitialCurrency</td>
+            <td>@Model.ExchangeData.InitialAmount</td>
+            <td>@Model.ExchangeData.ReturnCurrency</td>
+            <td>@Model.ExchangeData.ConvertedAmount</td>
+        </tr>
+    </tbody>
 </table>
 

@@ -10,13 +10,6 @@ namespace CurrencyExchange
     {
         public CurrencyType Base { get; set; }
         public DateTime Date { get; set; }
-        public Rates Rates { get; set; }
-    }
-
-    public class Rates
-    {
-        public double GBP { get; set; }
-        public double USD { get; set; }
-        public double Euro { get; set; }
+        public Dictionary<string,double> Rates { get; set; }
     }
 }

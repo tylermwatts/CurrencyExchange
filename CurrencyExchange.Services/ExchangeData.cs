@@ -15,11 +15,7 @@ namespace CurrencyExchange
         {
             get
             {
-                return ConvertedAmount;
-            }
-            set
-            {
-                ConvertedAmount = (InitialAmount * ReturnAmount);
+                return (InitialAmount * ReturnAmount);
             }
         }
     }

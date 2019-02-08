@@ -1,14 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using CurrencyExchange.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 
 namespace CurrencyExchange.Pages
 {
     public class IndexModel : PageModel
     {
+        private readonly ICurrencyExchangeService exchangeService;
+
+        public IndexModel(ICurrencyExchangeService exchangeService)
+        {
+            this.exchangeService = exchangeService;
+        }
+
         [BindProperty]
         public IndexViewModel IndexViewModel { get; set; }
 
@@ -17,12 +27,12 @@ namespace CurrencyExchange.Pages
             
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
-            // fetch $"https://api.exchangeratesapi.io/latest?base={IndexViewModel.InitialType}&symbols={IndexViewModel.ReturnType}"
-            // populate Convert view
-            // pass it as TempData???
-            return RedirectToPage("./Convert")
+            ExchangeData data = await exchangeService.GetExchangeDataAsync(IndexViewModel.InitialAmount, IndexViewModel.InitialType, IndexViewModel.ReturnType);
+            return RedirectToPage("Convert", "Convert", data);
         }
+
+        
     }
 }
