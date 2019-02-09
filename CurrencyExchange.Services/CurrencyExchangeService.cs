@@ -9,10 +9,16 @@ namespace CurrencyExchange.Services
 {
     public class CurrencyExchangeService : ICurrencyExchangeService
     {
+        private readonly HttpClient client;
+
+        public CurrencyExchangeService(HttpClient client)
+        {
+            this.client = client;
+        }
+
         public async Task<ExchangeData> GetExchangeDataAsync (double initialAmount, CurrencyType initialType, CurrencyType returnType)
         {
-            var httpClient = new HttpClient();
-            var stringResponse = await httpClient.GetStringAsync($"https://api.exchangeratesapi.io/latest?base={initialType}&symbols={returnType}");
+            var stringResponse = await client.GetStringAsync($"https://api.exchangeratesapi.io/latest?base={initialType}&symbols={returnType}");
             var latestModel = JsonConvert.DeserializeObject<LatestModel>(stringResponse);
             var exchangeData = new ExchangeData
             {

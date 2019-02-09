@@ -20,8 +20,7 @@
             <td>@Model.ExchangeData.InitialCurrency</td>
             <td>@Model.ExchangeData.InitialAmount</td>
             <td>@Model.ExchangeData.ReturnCurrency</td>
-            <td>@Model.ExchangeData.ConvertedAmount</td>
+            <td>@Math.Round(Model.ExchangeData.ConvertedAmount, 2)</td>
         </tr>
     </tbody>
 </table>
-

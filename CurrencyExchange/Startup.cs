@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using CurrencyExchange.Services;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,7 @@ namespace CurrencyExchange
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddTransient<ICurrencyExchangeService, CurrencyExchangeService>();
+            services.AddTransient<HttpClient>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
