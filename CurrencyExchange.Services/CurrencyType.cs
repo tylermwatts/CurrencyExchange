@@ -1,4 +1,6 @@
-﻿namespace CurrencyExchange
+﻿using System.Collections.Generic;
+
+namespace CurrencyExchange
 {
     public enum CurrencyType
     {

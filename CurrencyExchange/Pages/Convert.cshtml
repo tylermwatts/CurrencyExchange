@@ -6,21 +6,11 @@
 
 <h2>Latest Exchange Rate</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Base Currency</th>
-            <th>Initial Amount</th>
-            <th>Requested Currency</th>
-            <th>Converted Amount</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.ExchangeData.InitialCurrency</td>
-            <td>@Model.ExchangeData.InitialAmount</td>
-            <td>@Model.ExchangeData.ReturnCurrency</td>
-            <td>@Math.Round(Model.ExchangeData.ConvertedAmount, 2)</td>
-        </tr>
-    </tbody>
-</table>
+<div id="results">
+    <ul class="list-group">
+        <li class="list-group-item"><b>Base Currency: </b>@Model.InitialCurrencyInfo.Name</li>
+        <li class="list-group-item"><b>Requested Amount: </b>@Model.InitialCurrencyInfo.Symbol@Model.ExchangeData.InitialAmount</li>
+        <li class="list-group-item"><b>Converted To: </b>@Model.ReturnCurrencyInfo.Name</li>
+        <li class="list-group-item list-group-item-success"><b>Equivalent Amount: </b>@Model.ReturnCurrencyInfo.Symbol@Math.Round(Model.ExchangeData.ConvertedAmount, 2)</li>
+    </ul>
+</div>
