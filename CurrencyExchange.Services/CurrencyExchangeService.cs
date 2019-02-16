@@ -19,13 +19,13 @@ namespace CurrencyExchange.Services
         public async Task<ExchangeData> GetExchangeDataAsync (double initialAmount, CurrencyType initialType, CurrencyType returnType)
         {
             var stringResponse = await client.GetStringAsync($"https://api.exchangeratesapi.io/latest?base={initialType}&symbols={returnType}");
-            var latestModel = JsonConvert.DeserializeObject<LatestModel>(stringResponse);
+            var exchangeModel = JsonConvert.DeserializeObject<ExchangeModel>(stringResponse);
             var exchangeData = new ExchangeData
             {
                 InitialAmount = initialAmount,
                 InitialCurrency = initialType,
                 ReturnCurrency = returnType,
-                ReturnAmount = latestModel.Rates[returnType.ToString()]
+                ReturnAmount = exchangeModel.Rates[returnType.ToString()]
             };
             return exchangeData;
         }

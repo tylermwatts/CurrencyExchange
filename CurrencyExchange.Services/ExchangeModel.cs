@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CurrencyExchange
 {
-    public class LatestModel
+    public class ExchangeModel
     {
         public CurrencyType Base { get; set; }
         public DateTime Date { get; set; }
