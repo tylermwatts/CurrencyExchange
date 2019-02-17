@@ -10,5 +10,6 @@ namespace CurrencyExchange
         public CurrencyType InitialType { get; set; }
         public double InitialAmount { get; set; }
         public CurrencyType ReturnType { get; set; }
+        public DateTime? Date { get; set; }
     }
 }

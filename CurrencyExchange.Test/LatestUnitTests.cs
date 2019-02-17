@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CurrencyExchange.Test
 {
     [TestClass]
-    public class UnitTests
+    public class LatestUnitTests
     {
         [TestMethod]
         public void CurrencyInfoStatic_Returns_Correct_CurrencyInfo()

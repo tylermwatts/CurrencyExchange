@@ -27,9 +27,15 @@ namespace CurrencyExchange.Pages
             
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostLatest()
         {
             ExchangeData data = await exchangeService.GetExchangeDataAsync(IndexViewModel.InitialAmount, IndexViewModel.InitialType, IndexViewModel.ReturnType);
+            return RedirectToPage("Convert", "Convert", data);
+        }
+
+        public async Task<IActionResult> OnPostHistorical()
+        {
+            ExchangeData data = await exchangeService.GetExchangeDataAsync(IndexViewModel.InitialAmount, IndexViewModel.InitialType, IndexViewModel.ReturnType, IndexViewModel.Date);
             return RedirectToPage("Convert", "Convert", data);
         }
 
