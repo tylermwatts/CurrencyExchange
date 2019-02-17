@@ -4,10 +4,11 @@
     ViewData["Title"] = "Convert";
 }
 
-<h2>Latest Exchange Rate</h2>
+<h2>Exchange Rates</h2>
 
 <div id="results">
     <ul class="list-group">
+        <li class="list-group-item"><b>Date: </b>@Model.ExchangeData.Date.ToLongDateString()</li>
         <li class="list-group-item"><b>Base Currency: </b>@Model.InitialCurrencyInfo.Name</li>
         <li class="list-group-item"><b>Requested Amount: </b>@Model.InitialCurrencyInfo.Symbol@Model.ExchangeData.InitialAmount</li>
         <li class="list-group-item"><b>Converted To: </b>@Model.ReturnCurrencyInfo.Name</li>

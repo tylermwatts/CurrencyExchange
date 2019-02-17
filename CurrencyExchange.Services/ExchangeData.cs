@@ -18,5 +18,6 @@ namespace CurrencyExchange
                 return (InitialAmount * ReturnAmount);
             }
         }
+        public DateTime Date { get; set; }
     }
 }
