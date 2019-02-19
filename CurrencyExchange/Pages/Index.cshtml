@@ -14,11 +14,12 @@
             <h2>Get the latest exchange rates</h2>
             <div class="form-group">
                 <h5>Initial currency type:</h5>
-                <select required asp-for="IndexViewModel.InitialType">
+                <select class="currency-one" required asp-for="IndexViewModel.InitialType">
                     <optgroup label="Initial Currency">
-                        <option value="EUR">€ Euro</option>
-                        <option value="USD">$ U.S. Dollar</option>
-                        <option value="GBP">£ Pound Sterling</option>
+                        <option value="" disabled selected>Please select a currency</option>
+                        <option class="currency" value="EUR">€ Euro</option>
+                        <option class="currency" value="USD">$ U.S. Dollar</option>
+                        <option class="currency" value="GBP">£ Pound Sterling</option>
                     </optgroup>
                 </select>
             </div>
@@ -28,11 +29,12 @@
             </div>
             <div class="form-group">
                 <h5>Return currency type:</h5>
-                <select required asp-for="IndexViewModel.ReturnType">
+                <select class="currency-two" required asp-for="IndexViewModel.ReturnType">
                     <optgroup label="Return Currency">
-                        <option value="EUR">€ Euro</option>
-                        <option value="USD">$ U.S. Dollar</option>
-                        <option value="GBP">£ Pound Sterling</option>
+                        <option value="" disabled selected>Please select a currency</option>
+                        <option class="currency" value="EUR">€ Euro</option>
+                        <option class="currency" value="USD">$ U.S. Dollar</option>
+                        <option class="currency" value="GBP">£ Pound Sterling</option>
                     </optgroup>
                 </select>
             </div>
@@ -50,11 +52,12 @@
             </div>
             <div class="form-group">
                 <h5>Initial currency type:</h5>
-                <select required asp-for="IndexViewModel.InitialType">
+                <select class="currency-one" required asp-for="IndexViewModel.InitialType">
                     <optgroup label="Initial Currency">
-                        <option value="EUR">€ Euro</option>
-                        <option value="USD">$ U.S. Dollar</option>
-                        <option value="GBP">£ Pound Sterling</option>
+                        <option value="" disabled selected>Please select a currency</option>
+                        <option class="currency" value="EUR">€ Euro</option>
+                        <option class="currency" value="USD">$ U.S. Dollar</option>
+                        <option class="currency" value="GBP">£ Pound Sterling</option>
                     </optgroup>
                 </select>
             </div>
@@ -64,11 +67,12 @@
             </div>
             <div class="form-group">
                 <h5>Return currency type:</h5>
-                <select required asp-for="IndexViewModel.ReturnType">
+                <select class="currency-two" required asp-for="IndexViewModel.ReturnType">
                     <optgroup label="Return Currency">
-                        <option value="EUR">€ Euro</option>
-                        <option value="USD">$ U.S. Dollar</option>
-                        <option value="GBP">£ Pound Sterling</option>
+                        <option value="" disabled selected>Please select a currency</option>
+                        <option class="currency" value="EUR">€ Euro</option>
+                        <option class="currency" value="USD">$ U.S. Dollar</option>
+                        <option class="currency" value="GBP">£ Pound Sterling</option>
                     </optgroup>
                 </select>
             </div>
@@ -76,3 +80,16 @@
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.currency-one').change(function (e) {
+            $('.currency-two').children().children('.currency').prop('disabled', false);
+            $('.currency-two option[value=' + $(this).val() + ']').prop('disabled', true);
+        })
+        $('.currency-two').change(function (e) {
+            $('.currency-one').children().children().prop('disabled', false);
+            $('.currency-one option[value=' + $(this).val() + ']').prop('disabled', true);
+        })
+    });
+</script>
