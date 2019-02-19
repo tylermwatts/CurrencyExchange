@@ -6,8 +6,7 @@ This is a full-stack web application built with C# using .NET Core 2.2. It consu
 ## Version History
 
 `v0.2` - Gets latest and historical exchange data.
-
-  > Bugs:
-  >   - Selecting the same currrency type for initial and return results in a 400 error
+> ~~Bugs:~~
+> ~~- Selecting the same currrency type for initial and return results in a 400 error~~
   
 `v0.1` - Gets latest exchange data. No support for historical data yet.
