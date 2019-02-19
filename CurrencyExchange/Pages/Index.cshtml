@@ -84,11 +84,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('.currency-one').change(function (e) {
-            $('.currency-two').children().children('.currency').prop('disabled', false);
+            $('.currency-two').children('optgroup').children('.currency').prop('disabled', false);
             $('.currency-two option[value=' + $(this).val() + ']').prop('disabled', true);
         })
         $('.currency-two').change(function (e) {
-            $('.currency-one').children().children().prop('disabled', false);
+            $('.currency-one').children('optgroup').children('currency').prop('disabled', false);
             $('.currency-one option[value=' + $(this).val() + ']').prop('disabled', true);
         })
     });
